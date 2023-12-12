@@ -11,7 +11,7 @@ console.log(stage)
   return (
     <>
       {stage === "pick a cracker" ? (
-        <PickCracker setStage={setStage} setColor={setColor} />
+        <PickCracker setStage={setStage} setColor={setColor} color={color} />
       ) : stage === "cracker picked" ? (
         <CrackerPicked setStage={setStage} color={color} />
       ) : null}
