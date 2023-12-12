@@ -7,12 +7,12 @@ import { useEffect } from "react";
 // eslint-disable-next-line react/prop-types
 const PickCracker = ({ setStage, setColor, color }) => {
 
-  const crackerAnimation = {
-    animation: "shake 0.82s cubic-bezier(.36,.07,.19,.97) both",
-    transform: "rotate(-10deg) translate3d(0, 0, 0)",
-    backfaceVisibility: "hidden",
-    perspective: "1000px",
-  };
+  // const crackerAnimation = {
+  //   animation: "shake 0.82s cubic-bezier(.36,.07,.19,.97) both",
+  //   transform: "rotate(-10deg) translate3d(0, 0, 0)",
+  //   backfaceVisibility: "hidden",
+  //   perspective: "1000px",
+  // };
 
 
   useEffect(() => {

@@ -42,7 +42,7 @@ const CrackerPicked = ({ setStage, color }) => {
           transform: "translateY(-50%)",
           zIndex: pull === 5 ? 10 : -1
         }}
-        src={`/public/joke_img/joke_${jokesIdx}.png`}
+        src={`/public/jokesImages/joke_${jokesIdx}.png`}
       />
      
       <img
