@@ -14,8 +14,6 @@ const CrackerPicked = ({ setStage, color }) => {
   const [crackerBottom, setCrackerBottom] = useState("50%");
   const [pull, setPull] = useState(0);
 
-  console.log(jokes)
-
   useEffect(() => {
     if (pull === 5) {
       setCrackerTop((position) => position.replace("%", "") - 22.5 + "%");
@@ -34,19 +32,33 @@ const CrackerPicked = ({ setStage, color }) => {
       }}
     >
       <img
+        id="joke-img"
+        onClick={(event) => {
+          const image = event.target;
+          const boundingRect = image.getBoundingClientRect();
+  
+          const relativeX = (event.clientX - boundingRect.left) / image.width * 100;
+          const relativeY = (event.clientY - boundingRect.top) / image.height * 100;
+  
+          console.log("Relative Coordinates:", { x: relativeX, y: relativeY  });
+        }}
         style={{
           position: "absolute",
           width: "90%",
           left: "5%",
           top: "50%",
           transform: "translateY(-50%)",
-          zIndex: pull === 5 ? 10 : -1
+          zIndex: pull === 5 ? 10 : -1,
         }}
-        src={`/public/jokesImages/joke_${jokesIdx}.png`}
+        src={`/jokesImages/joke_${jokesIdx}.png`}
       />
-     
+
       <img
-        src={pull === 5 ? "/Images/WebP/joke_bg.webp" : "/Images/WebP/popping_bg.webp"}
+        src={
+          pull === 5
+            ? "/Images/WebP/joke_bg.webp"
+            : "/Images/WebP/popping_bg.webp"
+        }
         style={{
           position: "relative",
           height: "100%",
@@ -115,6 +127,62 @@ const CrackerPicked = ({ setStage, color }) => {
           }}
         />
       </div>
+
+      <img src="joke_1.png" useMap="#image-map" />
+      {/* <img src="joke_2.png" useMap="#image-map" />
+      <img src="joke_3.png" useMap="#image-map" />
+      <img src="joke_4.png" useMap="#image-map" />
+      <img src="joke_5.png" useMap="#image-map" />
+      <img src="joke_6.png" useMap="#image-map" />
+      <img src="joke_7.png" useMap="#image-map" />
+      <img src="joke_8.png" useMap="#image-map" />
+      <img src="joke_9.png" useMap="#image-map" />
+      <img src="joke_10.png" useMap="#image-map" />
+      <img src="joke_11.png" useMap="#image-map" />
+      <img src="joke_12.png" useMap="#image-map" />
+      <img src="joke_13.png" useMap="#image-map" />
+      <img src="joke_14.png" useMap="#image-map" />
+      <img src="joke_15.png" useMap="#image-map" />
+      <img src="joke_16.png" useMap="#image-map" />
+      <img src="joke_17.png" useMap="#image-map" />
+      <img src="joke_18.png" useMap="#image-map" />
+      <img src="joke_19.png" useMap="#image-map" />
+      <img src="joke_20.png" useMap="#image-map" /> */}
+
+      <map name="image-map">
+        <area
+          target="_self"
+          alt="facebook"
+          title="facebook"
+          href="#"
+          coords="365,515,24"
+          shape="circle"
+        />
+        <area
+          target="_self"
+          alt="twitter"
+          title="twitter"
+          href="#"
+          coords="437,514,23"
+          shape="circle"
+        />
+        <area
+          target="_self"
+          alt="instagram"
+          title="instagram"
+          href="#"
+          coords="511,514,27"
+          shape="circle"
+        />
+        <area
+          target="_self"
+          alt="whatsapp"
+          title="whatsapp"
+          href="#"
+          coords="587,514,26"
+          shape="circle"
+        />
+      </map>
     </div>
   );
 };

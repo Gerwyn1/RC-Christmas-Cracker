@@ -7,7 +7,6 @@ import CrackerPicked from "./components/CrackerPicked";
 function App() {
   const [stage, setStage] = useState("pick a cracker");
   const [color, setColor] = useState(null);
-console.log(stage)
   return (
     <>
       {stage === "pick a cracker" ? (

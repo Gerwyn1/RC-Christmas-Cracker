@@ -23,7 +23,6 @@ const PickCracker = ({ setStage, setColor, color }) => {
     }
   }, [color, setStage]);
 
-  // setStage("cracker picked");
   return (
     <div
       style={{

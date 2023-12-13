@@ -1,17 +1,97 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Royal Caribbean Christmas Cracker</title>
+
+    <!-- General -->
+    <meta name="Description" content="RC Christmas Cracker" />
+    <meta name="Keywords" content="" />
+    <meta name="robots" content="" />
+    <meta name="author" content="" />
+    <link rel="canonical" href="" />
+    <link
+      rel="icon"
+      href="assets/images/nms-logo.ico"
+      type="image/x-icon"
+      sizes="16x16"
+    />
+
+    <!-- For Facebook -->
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="RC Christmas Cracker" />
+    <meta property="og:description" content="RC Christmas Cracker" />
+    <meta
+      property="og:image"
+      content="https://preview.blaklabs.com/CDL/christmas/v1.1/assets/images/info-bg.png"
+    />
+
+    <!-- For Twitter -->
+    <meta name="twitter:card" content="RC Christmas Cracker" />
+    <meta name="twitter:title" content="RC Christmas Cracker" />
+    <meta name="twitter:description" content="RC Christmas Cracker" />
+    <meta
+      name="twitter:image"
+      content="https://preview.blaklabs.com/CDL/christmas/v1.1/assets/images/info-bg.png"
+    />
+    <meta name="twitter:url" content="" />
+    <!-- <script src="../../js/ios-orientationchange-fix.min.js"></script> -->
+    <script src="../../js/ios-orientationchange-fix.min.js"></script>
+    <style>
+      img[useMap] {
+        border: none;
+        height: auto;
+        max-width: 100%;
+        width: auto;
+      }
+    </style>
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-     <!-- <script src="/src/imageMapResizer.min.js"></script>
+    <!-- <script src="/src/imageMapResizer.min.js"></script>
     <script>
       imageMapResize();
+    </script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- <script src="/path/to/cdn/jquery.slim.min.js"></script> -->
+    <script src="/src/jquery.rwdImageMaps.min.js"></script>
+    <!-- <script src="https://gist.github.com/rictorres/6159438.js"></script> -->
+    <!-- <script>
+      $(document).ready(function (e) {
+        $("img[usemap]").rwdImageMaps();
+      });
+    </script> -->
+    <!-- <script>
+   $(document).ready(function(e) {
+    $('img[useMap]').rwdImageMaps();
+});
+    </script> -->
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const jokeImg = document.getElementById("joke-img");
+        console.log(jokeImg)
+
+        if (jokeImg) {
+          jokeImg.addEventListener("click", function (event) {
+            console.log("HELP!!");
+            const image = event.target;
+            const boundingRect = image.getBoundingClientRect();
+
+            const relativeX = (event.clientX - boundingRect.left) / image.width;
+            const relativeY = (event.clientY - boundingRect.top) / image.height;
+
+            console.log("Relative Coordinates:", {
+              x: relativeX,
+              y: relativeY,
+            });
+          });
+        }
+      });
     </script> -->
   </body>
 </html>
