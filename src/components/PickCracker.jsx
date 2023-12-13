@@ -6,20 +6,11 @@ import { useEffect } from "react";
 
 // eslint-disable-next-line react/prop-types
 const PickCracker = ({ setStage, setColor, color }) => {
-
-  // const crackerAnimation = {
-  //   animation: "shake 0.82s cubic-bezier(.36,.07,.19,.97) both",
-  //   transform: "rotate(-10deg) translate3d(0, 0, 0)",
-  //   backfaceVisibility: "hidden",
-  //   perspective: "1000px",
-  // };
-
-
   useEffect(() => {
     if (color) {
       setTimeout(() => {
         setStage("cracker picked");
-      }, 0);
+      }, 2500);
     }
   }, [color, setStage]);
 
@@ -31,12 +22,65 @@ const PickCracker = ({ setStage, setColor, color }) => {
         overflow: "hidden",
       }}
     >
+      {/* WHITE, PURPLE, RED & GREEN CRACKER LOADING BAR */}
+      {color === "w" ? (
+        <div
+          style={{
+            position: "absolute",
+            zIndex: 12000,
+            left: "20%",
+            top: "32.5%",
+          }}
+          id="candy"
+        >
+          <div id="candy-loader"></div>
+        </div>
+      ) : color === "p" ? (
+        <div
+          style={{
+            position: "absolute",
+            zIndex: 12000,
+            left: "20%",
+            top: "12.5%",
+          }}
+          id="candy"
+        >
+          <div id="candy-loader"></div>
+        </div>
+      ) : color === "r" ? (
+        <div
+          style={{
+            position: "absolute",
+            zIndex: 12000,
+            left: "45%",
+            top: "17.5%",
+          }}
+          id="candy"
+        >
+          <div id="candy-loader"></div>
+        </div>
+      ) : color === "g" ? (
+        <div
+          style={{
+            position: "absolute",
+            zIndex: 12000,
+            left: "75%",
+            top: "15%",
+          }}
+          id="candy"
+        >
+          <div id="candy-loader"></div>
+        </div>
+      ) : null}
+
       {/* GREEN HOVER */}
       <a
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          setColor("g");
+          if (!color) {
+            setColor("g");
+          }
         }}
       >
         <div
@@ -57,7 +101,9 @@ const PickCracker = ({ setStage, setColor, color }) => {
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          setColor("r");
+          if (!color) {
+            setColor("r");
+          }
         }}
       >
         <div
@@ -77,7 +123,9 @@ const PickCracker = ({ setStage, setColor, color }) => {
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          setColor("r");
+          if (!color) {
+            setColor("r");
+          }
         }}
       >
         <div
@@ -97,7 +145,9 @@ const PickCracker = ({ setStage, setColor, color }) => {
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          setColor("r");
+          if (!color) {
+            setColor("r");
+          }
         }}
       >
         <div
@@ -117,7 +167,9 @@ const PickCracker = ({ setStage, setColor, color }) => {
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          setColor("r");
+          if (!color) {
+            setColor("r");
+          }
         }}
       >
         <div
@@ -137,7 +189,9 @@ const PickCracker = ({ setStage, setColor, color }) => {
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          setColor("r");
+          if (!color) {
+            setColor("r");
+          }
         }}
       >
         <div
@@ -157,7 +211,9 @@ const PickCracker = ({ setStage, setColor, color }) => {
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          setColor("r");
+          if (!color) {
+            setColor("r");
+          }
         }}
       >
         <div
@@ -177,7 +233,9 @@ const PickCracker = ({ setStage, setColor, color }) => {
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          setColor("r");
+          if (!color) {
+            setColor("r");
+          }
         }}
       >
         <div
@@ -199,7 +257,9 @@ const PickCracker = ({ setStage, setColor, color }) => {
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          setColor("p");
+          if (!color) {
+            setColor("p");
+          }
         }}
       >
         <div
@@ -220,7 +280,9 @@ const PickCracker = ({ setStage, setColor, color }) => {
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          setColor("w");
+          if (!color) {
+            setColor("w");
+          }
         }}
       >
         <div
@@ -240,7 +302,9 @@ const PickCracker = ({ setStage, setColor, color }) => {
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          setColor("w");
+          if (!color) {
+            setColor("w");
+          }
         }}
       >
         <div
@@ -260,7 +324,9 @@ const PickCracker = ({ setStage, setColor, color }) => {
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          setColor("w");
+          if (!color) {
+            setColor("w");
+          }
         }}
       >
         <div
@@ -280,7 +346,9 @@ const PickCracker = ({ setStage, setColor, color }) => {
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          setColor("w");
+          if (!color) {
+            setColor("w");
+          }
         }}
       >
         <div
