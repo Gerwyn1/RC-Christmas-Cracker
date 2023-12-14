@@ -5,6 +5,20 @@
 import { useState, useEffect } from "react";
 
 import { jokes } from "../constants/jokesData.js";
+import { Modal } from "react-bootstrap";
+import {
+  EmailIcon,
+  EmailShareButton,
+  FacebookIcon,
+  FacebookShareButton,
+  TelegramIcon,
+  TelegramShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
+} from "react-share";
+import QRCode from "react-qr-code";
 
 const jokesIdx = Math.floor(Math.random() * jokes.length) + 1;
 const CrackerPicked = ({ setStage, color }) => {
@@ -13,6 +27,11 @@ const CrackerPicked = ({ setStage, color }) => {
   const [crackerTop, setCrackerTop] = useState("23.6%");
   const [crackerBottom, setCrackerBottom] = useState("50%");
   const [pull, setPull] = useState(0);
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     if (pull === 5) {
@@ -31,16 +50,87 @@ const CrackerPicked = ({ setStage, color }) => {
         overflow: "hidden",
       }}
     >
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title style={{ color: "#B51F1C", fontSize: "2.25rem" }}>
+            Share via a link!
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <WhatsappShareButton url={"www.example.com"}>
+            <WhatsappIcon />
+          </WhatsappShareButton>
+          <TwitterShareButton url={"www.example.com"}>
+            <TwitterIcon />
+          </TwitterShareButton>
+          <FacebookShareButton url={"www.example.com"}>
+            <FacebookIcon />
+          </FacebookShareButton>
+          <TelegramShareButton url={"www.example.com"}>
+            <TelegramIcon />
+          </TelegramShareButton>
+          <EmailShareButton url={"www.example.com"}>
+            <EmailIcon />
+          </EmailShareButton>
+        </Modal.Body>
+        <Modal.Footer>
+          <div
+            style={{
+              // maxWidth: 64,
+              display: "inline-block",
+              marginRight: "auto",
+            }}
+          >
+            <QRCode
+              size={256}
+              style={{ height: "auto", maxWidth: "100%" }}
+              value="https://www.gardensbythebay.com.sg/en.html"
+              viewBox={`0 0 256 256`}
+            />
+          </div>
+        </Modal.Footer>
+      </Modal>
       <img
         id="joke-img"
+        onMouseMove={(event) => {
+          const image = event.target;
+          const boundingRect = image.getBoundingClientRect();
+
+          const relativeX =
+            ((event.clientX - boundingRect.left) / image.width) * 100;
+          const relativeY =
+            ((event.clientY - boundingRect.top) / image.height) * 100;
+          // console.log("Relative Coordinates:", { x: relativeX, y: relativeY  });
+          if (
+            relativeX >= 37 &&
+            relativeX <= 62 &&
+            relativeY >= 81 &&
+            relativeY <= 94.8
+          ) {
+            image.style.cursor = "pointer";
+          } else {
+            image.style.cursor = "default";
+          }
+        }}
         onClick={(event) => {
           const image = event.target;
           const boundingRect = image.getBoundingClientRect();
-  
-          const relativeX = (event.clientX - boundingRect.left) / image.width * 100;
-          const relativeY = (event.clientY - boundingRect.top) / image.height * 100;
-  
-          console.log("Relative Coordinates:", { x: relativeX, y: relativeY  });
+
+          const relativeX =
+            ((event.clientX - boundingRect.left) / image.width) * 100;
+          const relativeY =
+            ((event.clientY - boundingRect.top) / image.height) * 100;
+
+          console.log("Relative Coordinates:", { x: relativeX, y: relativeY });
+
+          if (
+            relativeX >= 37 &&
+            relativeX <= 62 &&
+            relativeY >= 81 &&
+            relativeY <= 94.8
+          ) {
+            handleShow();
+          }
         }}
         style={{
           position: "absolute",
@@ -50,7 +140,7 @@ const CrackerPicked = ({ setStage, color }) => {
           transform: "translateY(-50%)",
           zIndex: pull === 5 ? 10 : -1,
         }}
-        src={`/jokesImages/joke_${jokesIdx}.png`}
+        src={`/rcJokesPng/joke_${jokesIdx}.png`}
       />
 
       <img

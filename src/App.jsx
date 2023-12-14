@@ -3,6 +3,7 @@ import "./App.css";
 import PickCracker from "./components/PickCracker";
 import CrackerPicked from "./components/CrackerPicked";
 // import CrackerOpened from "./components/CrackerOpened";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [stage, setStage] = useState("pick a cracker");
