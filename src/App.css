@@ -10,13 +10,16 @@ body {
   padding:0;
 }
 
-
 /* CHRISTMAS LOADING CANDY*/
-
 body {
   background-color: #FAFAFA;
   -webkit-animation: color 8s linear infinite;
           animation: color 8s linear infinite;
+}
+
+.modal-dialog {
+  height: 50vh;
+  width: 50vw;
 }
 
 #candy {

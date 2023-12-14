@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import "./index.css";
 import PickCracker from "./components/PickCracker";
 import CrackerPicked from "./components/CrackerPicked";
 // import CrackerOpened from "./components/CrackerOpened";

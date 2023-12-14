@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 
-// import SvgStageOne from "./SvgStageOne";
 
 /* eslint-disable react/no-unknown-property */
 

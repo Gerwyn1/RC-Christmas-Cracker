@@ -73,6 +73,11 @@ const CrackerPicked = ({ setStage, color }) => {
             <EmailIcon />
           </EmailShareButton>
         </Modal.Body>
+        <Modal.Body>
+          <Modal.Title style={{ color: "#B51F1C", fontSize: "2.25rem" }}>
+            Scan QR Code!
+          </Modal.Title>
+        </Modal.Body>
         <Modal.Footer>
           <div
             style={{

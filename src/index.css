@@ -4,7 +4,7 @@
   font-weight: 400;
 
   /* color-scheme: light dark; */
-  /* color: rgba(255, 255, 255, 0.87); */
+  color: rgba(255, 255, 255, 0.87);
   /* background-color: #242424; */
 
   font-synthesis: none;
@@ -15,14 +15,14 @@
 
 @font-face {
   font-family: "Tangerine";
-  src: url("/Font/Tangerine-Bold.ttf") format("truetype"); /* TTF font format */
-  font-weight: bold; /* Specify the font weight */
+  src: url("/Fonts/Kapra-Regular.otf") format("truetype"); /* TTF font format */
 }
 
 body {
   display: flex;
   margin: 0;
   padding: 0;
+  font-family: "Tangerine", sans-serif;
 }
 
 /* .face:hover {
