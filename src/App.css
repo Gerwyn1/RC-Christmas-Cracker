@@ -17,10 +17,38 @@ body {
           animation: color 8s linear infinite;
 }
 
-.modal-dialog {
-  height: 50vh;
-  width: 50vw;
+.modal {
+  display:flex !important;
 }
+
+.modal-dialog {
+  display:flex !important;
+  margin: auto !important;
+}
+
+/* like 1000px, 768px, 600px, 500px or 400px */
+
+@media (min-width: 768px and min-width: 1024px) {
+  .modal-dialog .h4{
+    font-size: 3rem !important;
+   }
+}
+
+
+
+/* .modal-height {
+  height:100%;
+} */
+
+/* .modal-content {
+  width: 90vw !important;
+  margin: auto !important;
+} */
+
+/* .my-modal {
+  height: 50vh !important;
+  width: 80vw !important;
+}  */
 
 #candy {
   overflow: hidden;

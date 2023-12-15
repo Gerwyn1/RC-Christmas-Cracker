@@ -19,6 +19,7 @@ import {
   WhatsappShareButton,
 } from "react-share";
 import QRCode from "react-qr-code";
+import useScreenOrientation from "../@hooks/useOrientation.js";
 
 const jokesIdx = Math.floor(Math.random() * jokes.length) + 1;
 const CrackerPicked = ({ setStage, color }) => {
@@ -42,6 +43,32 @@ const CrackerPicked = ({ setStage, color }) => {
     }
   }, [pull]);
 
+  // const oreintation = useScreenOrientation();
+  // console.log(oreintation)
+
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  const windowDifference = windowSize.height - windowSize.width;
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Initial cleanup to remove the event listener
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div
       style={{
@@ -50,9 +77,20 @@ const CrackerPicked = ({ setStage, color }) => {
         overflow: "hidden",
       }}
     >
-      <Modal show={show} onHide={handleClose}>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        contentClassName="modal-height"
+        // dialogClassName="modal-width"
+        dialogClassName="my-modal"
+      >
         <Modal.Header closeButton>
-          <Modal.Title style={{ color: "#B51F1C", fontSize: "2.25rem" }}>
+          <Modal.Title
+            style={{
+              color: "#B51F1C",
+              fontSize: windowDifference >= 250 ? "3rem" : "2.25rem",
+            }}
+          >
             Share via a link!
           </Modal.Title>
         </Modal.Header>
@@ -74,7 +112,12 @@ const CrackerPicked = ({ setStage, color }) => {
           </EmailShareButton>
         </Modal.Body>
         <Modal.Body>
-          <Modal.Title style={{ color: "#B51F1C", fontSize: "2.25rem" }}>
+          <Modal.Title
+            style={{
+              color: "#B51F1C",
+              fontSize: windowDifference >= 250 ? "3rem" : "2.25rem",
+            }}
+          >
             Scan QR Code!
           </Modal.Title>
         </Modal.Body>
@@ -82,13 +125,14 @@ const CrackerPicked = ({ setStage, color }) => {
           <div
             style={{
               // maxWidth: 64,
-              display: "inline-block",
+              display: "block",
               marginRight: "auto",
+              height: "100%",
             }}
           >
             <QRCode
               size={256}
-              style={{ height: "auto", maxWidth: "100%" }}
+              style={{ height: "80%", width: "100%" }}
               value="https://www.gardensbythebay.com.sg/en.html"
               viewBox={`0 0 256 256`}
             />
