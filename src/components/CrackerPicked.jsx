@@ -223,6 +223,7 @@ const CrackerPicked = ({ setStage, color }) => {
         }}
       />
       <div
+      className='fade-in'
         style={{
           position: "relative",
           transform: `translate(-2.5%, -105%) rotate(-22.5deg) scale(${
