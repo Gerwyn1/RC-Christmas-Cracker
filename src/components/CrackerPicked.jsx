@@ -97,19 +97,19 @@ const CrackerPicked = ({ setStage, color }) => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <WhatsappShareButton url={"https://preview.blaklabs.com/RC/"}>
+          <WhatsappShareButton url={"https://preview.blaklabs.com/xmas2023_rc/"}>
             <WhatsappIcon />
           </WhatsappShareButton>
-          <TwitterShareButton url={"https://preview.blaklabs.com/RC/"}>
+          <TwitterShareButton url={"https://preview.blaklabs.com/xmas2023_rc/"}>
             <TwitterIcon />
           </TwitterShareButton>
-          <FacebookShareButton url={"https://preview.blaklabs.com/RC/"}>
+          <FacebookShareButton url={"https://preview.blaklabs.com/xmas2023_rc/"}>
             <FacebookIcon />
           </FacebookShareButton>
-          <TelegramShareButton url={"https://preview.blaklabs.com/RC/"}>
+          <TelegramShareButton url={"https://preview.blaklabs.com/xmas2023_rc/"}>
             <TelegramIcon />
           </TelegramShareButton>
-          <EmailShareButton url={"https://preview.blaklabs.com/RC/"}>
+          <EmailShareButton url={"https://preview.blaklabs.com/xmas2023_rc/"}>
             <EmailIcon />
           </EmailShareButton>
         </Modal.Body>
@@ -147,7 +147,7 @@ const CrackerPicked = ({ setStage, color }) => {
                     ? "65%"
                     : "85%",
               }}
-              value="https://preview.blaklabs.com/RC/"
+              value="https://preview.blaklabs.com/xmas2023_rc/"
               viewBox={`0 0 256 256`}
             />
           </div>
