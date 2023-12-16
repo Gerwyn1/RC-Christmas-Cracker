@@ -46,7 +46,6 @@ const CrackerPicked = ({ setStage, color }) => {
   }, [pull]);
 
   const oreintation = useScreenOrientation();
-  console.log(oreintation);
 
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
@@ -62,7 +61,6 @@ const CrackerPicked = ({ setStage, color }) => {
       });
     };
 
-    console.log(windowDifference);
 
     // Add event listener for window resize
     window.addEventListener("resize", handleResize);
@@ -99,19 +97,19 @@ const CrackerPicked = ({ setStage, color }) => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <WhatsappShareButton url={"www.example.com"}>
+          <WhatsappShareButton url={"https://preview.blaklabs.com/RC/"}>
             <WhatsappIcon />
           </WhatsappShareButton>
-          <TwitterShareButton url={"www.example.com"}>
+          <TwitterShareButton url={"https://preview.blaklabs.com/RC/"}>
             <TwitterIcon />
           </TwitterShareButton>
-          <FacebookShareButton url={"www.example.com"}>
+          <FacebookShareButton url={"https://preview.blaklabs.com/RC/"}>
             <FacebookIcon />
           </FacebookShareButton>
-          <TelegramShareButton url={"www.example.com"}>
+          <TelegramShareButton url={"https://preview.blaklabs.com/RC/"}>
             <TelegramIcon />
           </TelegramShareButton>
-          <EmailShareButton url={"www.example.com"}>
+          <EmailShareButton url={"https://preview.blaklabs.com/RC/"}>
             <EmailIcon />
           </EmailShareButton>
         </Modal.Body>
@@ -149,7 +147,7 @@ const CrackerPicked = ({ setStage, color }) => {
                     ? "65%"
                     : "85%",
               }}
-              value="https://www.gardensbythebay.com.sg/en.html"
+              value="https://preview.blaklabs.com/RC/"
               viewBox={`0 0 256 256`}
             />
           </div>
@@ -186,7 +184,6 @@ const CrackerPicked = ({ setStage, color }) => {
           const relativeY =
             ((event.clientY - boundingRect.top) / image.height) * 100;
 
-          console.log("Relative Coordinates:", { x: relativeX, y: relativeY });
 
           if (
             relativeX >= 37 &&
@@ -206,13 +203,13 @@ const CrackerPicked = ({ setStage, color }) => {
           transform: "translateY(-50%)",
           zIndex: pull === 5 ? 10 : -1,
         }}
-        src={`/rcJokesPng/joke_${jokesIdx}.png`}
+        src={`rcJokesPng/joke_${jokesIdx}.png`}
       />
       <img
         src={
           pull === 5
-            ? "/Images/WebP/joke_bg.webp"
-            : "/Images/WebP/popping_bg.webp"
+            ? "Images/WebP/joke_bg.webp"
+            : "Images/WebP/popping_bg.webp"
         }
         style={{
           position: "relative",
@@ -256,7 +253,7 @@ const CrackerPicked = ({ setStage, color }) => {
       >
         <img
           id="top_cracker"
-          src={`/public/RC_SPLIT/pop_top_${color}.webp`}
+          src={`RC_SPLIT/pop_top_${color}.webp`}
           alt="cracker top"
           style={{
             top: crackerTop,
@@ -270,7 +267,7 @@ const CrackerPicked = ({ setStage, color }) => {
         />
         <img
           id="bottom_cracker"
-          src={`/public/RC_SPLIT/pop_btm_${color}.webp`}
+          src={`RC_SPLIT/pop_btm_${color}.webp`}
           alt="cracker bottom"
           style={{
             top: crackerBottom,
@@ -284,7 +281,7 @@ const CrackerPicked = ({ setStage, color }) => {
         />
       </div>
 
-      <img src="joke_1.png" useMap="#image-map" />
+      {/* <img src="joke_1.png" useMap="#image-map" /> */}
       {/* <img src="joke_2.png" useMap="#image-map" />
       <img src="joke_3.png" useMap="#image-map" />
       <img src="joke_4.png" useMap="#image-map" />

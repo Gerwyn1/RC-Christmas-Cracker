@@ -365,7 +365,7 @@ const PickCracker = ({ setStage, setColor, color }) => {
       </a>
 
       <img
-        src={"/RC_stage1.png"}
+        src={"RC_stage1.png"}
         style={{
           position: "relative",
           height: "100%",
