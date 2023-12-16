@@ -13,6 +13,7 @@ const PickCracker = ({ setStage, setColor, color }) => {
     }
   }, [color, setStage]);
 
+
   return (
     <div
       style={{

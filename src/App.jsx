@@ -9,6 +9,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const [stage, setStage] = useState("pick a cracker");
   const [color, setColor] = useState(null);
+
+  console.log(stage)
+  console.log(color)
+
+
   return (
     <>
       {stage === "pick a cracker" ? (

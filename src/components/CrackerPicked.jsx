@@ -36,6 +36,8 @@ const CrackerPicked = ({ setStage, color }) => {
 
   const [lgShow, setLgShow] = useState(false);
 
+  console.log(pull);
+
   useEffect(() => {
     if (pull === 5) {
       setCrackerTop((position) => position.replace("%", "") - 22.5 + "%");
@@ -60,7 +62,6 @@ const CrackerPicked = ({ setStage, color }) => {
         height: window.innerHeight,
       });
     };
-
 
     // Add event listener for window resize
     window.addEventListener("resize", handleResize);
@@ -97,16 +98,22 @@ const CrackerPicked = ({ setStage, color }) => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <WhatsappShareButton url={"https://preview.blaklabs.com/xmas2023_rc/"}>
+          <WhatsappShareButton
+            url={"https://preview.blaklabs.com/xmas2023_rc/"}
+          >
             <WhatsappIcon />
           </WhatsappShareButton>
           <TwitterShareButton url={"https://preview.blaklabs.com/xmas2023_rc/"}>
             <TwitterIcon />
           </TwitterShareButton>
-          <FacebookShareButton url={"https://preview.blaklabs.com/xmas2023_rc/"}>
+          <FacebookShareButton
+            url={"https://preview.blaklabs.com/xmas2023_rc/"}
+          >
             <FacebookIcon />
           </FacebookShareButton>
-          <TelegramShareButton url={"https://preview.blaklabs.com/xmas2023_rc/"}>
+          <TelegramShareButton
+            url={"https://preview.blaklabs.com/xmas2023_rc/"}
+          >
             <TelegramIcon />
           </TelegramShareButton>
           <EmailShareButton url={"https://preview.blaklabs.com/xmas2023_rc/"}>
@@ -153,58 +160,61 @@ const CrackerPicked = ({ setStage, color }) => {
           </div>
         </Modal.Footer>
       </Modal>
-      <img
-        id="joke-img"
-        onMouseMove={(event) => {
-          const image = event.target;
-          const boundingRect = image.getBoundingClientRect();
 
-          const relativeX =
-            ((event.clientX - boundingRect.left) / image.width) * 100;
-          const relativeY =
-            ((event.clientY - boundingRect.top) / image.height) * 100;
-          // console.log("Relative Coordinates:", { x: relativeX, y: relativeY  });
-          if (
-            relativeX >= 37 &&
-            relativeX <= 62 &&
-            relativeY >= 81 &&
-            relativeY <= 94.8
-          ) {
-            image.style.cursor = "pointer";
-          } else {
-            image.style.cursor = "default";
-          }
-        }}
-        onClick={(event) => {
-          const image = event.target;
-          const boundingRect = image.getBoundingClientRect();
+      {pull === 5 && (
+        <img
+          id="joke-img"
+          onMouseMove={(event) => {
+            const image = event.target;
+            const boundingRect = image.getBoundingClientRect();
 
-          const relativeX =
-            ((event.clientX - boundingRect.left) / image.width) * 100;
-          const relativeY =
-            ((event.clientY - boundingRect.top) / image.height) * 100;
+            const relativeX =
+              ((event.clientX - boundingRect.left) / image.width) * 100;
+            const relativeY =
+              ((event.clientY - boundingRect.top) / image.height) * 100;
+            // console.log("Relative Coordinates:", { x: relativeX, y: relativeY  });
+            if (
+              relativeX >= 37 &&
+              relativeX <= 62 &&
+              relativeY >= 81 &&
+              relativeY <= 94.8
+            ) {
+              image.style.cursor = "pointer";
+            } else {
+              image.style.cursor = "default";
+            }
+          }}
+          onClick={(event) => {
+            const image = event.target;
+            const boundingRect = image.getBoundingClientRect();
 
+            const relativeX =
+              ((event.clientX - boundingRect.left) / image.width) * 100;
+            const relativeY =
+              ((event.clientY - boundingRect.top) / image.height) * 100;
 
-          if (
-            relativeX >= 37 &&
-            relativeX <= 62 &&
-            relativeY >= 81 &&
-            relativeY <= 94.8
-          ) {
-            handleShow();
-            setLgShow(true);
-          }
-        }}
-        style={{
-          position: "absolute",
-          width: "90%",
-          left: "5%",
-          top: "50%",
-          transform: "translateY(-50%)",
-          zIndex: pull === 5 ? 10 : -1,
-        }}
-        src={`rcJokesPng/joke_${jokesIdx}.png`}
-      />
+            if (
+              relativeX >= 37 &&
+              relativeX <= 62 &&
+              relativeY >= 81 &&
+              relativeY <= 94.8
+            ) {
+              handleShow();
+              setLgShow(true);
+            }
+          }}
+          style={{
+            position: "absolute",
+            width: "90%",
+            left: "5%",
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 10,
+          }}
+          src={`rcJokesPng/joke_${jokesIdx}.png`}
+        />
+      )}
+
       <img
         src={
           pull === 5
@@ -220,7 +230,7 @@ const CrackerPicked = ({ setStage, color }) => {
         }}
       />
       <div
-      className='fade-in'
+        className="fade-in"
         style={{
           position: "relative",
           transform: `translate(-2.5%, -105%) rotate(-22.5deg) scale(${
