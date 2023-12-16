@@ -17,24 +17,77 @@ body {
           animation: color 8s linear infinite;
 }
 
-.modal {
+/* .modal {
   display:flex !important;
+} */
+
+.modal-content {
+  padding: 1rem !important;
+  margin: auto !important;
 }
 
 .modal-dialog {
   display:flex !important;
+  height:100vh !important;
+  margin: auto !important;
+  text-align: center !important;
+  padding : 0 1rem;
+}
+.modal-header .h4{
+  margin: auto;
+}
+
+.react-share__ShareButton svg  {
+  margin:.3rem;
+}
+
+.modal-dialog {
   margin: auto !important;
 }
 
+/* @media  (max-width: 600px) {
+  .modal-dialog {
+    margin: auto 1rem !important;
+  }
+} */
+
+.modal-header .h4{
+  font-size: clamp(0.5rem, 0.8rem + 5vw, 3rem) !important;
+ }
+
+@media (min-width: 1440px)  and (max-width: 2560px) {
+  .modal-header .h4{
+    font-size: clamp(0.5rem, 0.8rem + 2vw, 6rem) !important;
+  }
+
+   .react-share__ShareButton svg  {
+    /* width: 125px; */
+    /* height: 125px; */
+  }
+}
+
+@media (orientation: landscape) {
+  .modal-header .h4{
+    font-size: clamp(0.5rem, 0.8rem + 1.5vw, 7rem) !important;
+   }
+/* .modal-dialog {
+
+} */
+
+}
+
+/* .modal-90w { 
+  width: 90% !important;
+  max-width: none !important;
+} */
+
 /* like 1000px, 768px, 600px, 500px or 400px */
 
-@media (min-width: 768px and min-width: 1024px) {
+/* @media (min-width: 768px and min-width: 1024px) {
   .modal-dialog .h4{
     font-size: 3rem !important;
    }
-}
-
-
+} */
 
 /* .modal-height {
   height:100%;

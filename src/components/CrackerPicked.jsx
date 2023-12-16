@@ -34,6 +34,8 @@ const CrackerPicked = ({ setStage, color }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [lgShow, setLgShow] = useState(false);
+
   useEffect(() => {
     if (pull === 5) {
       setCrackerTop((position) => position.replace("%", "") - 22.5 + "%");
@@ -43,15 +45,15 @@ const CrackerPicked = ({ setStage, color }) => {
     }
   }, [pull]);
 
-  // const oreintation = useScreenOrientation();
-  // console.log(oreintation)
+  const oreintation = useScreenOrientation();
+  console.log(oreintation);
 
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
   });
 
-  const windowDifference = windowSize.height - windowSize.width;
+  const windowDifference = Math.abs(windowSize.height - windowSize.width);
   useEffect(() => {
     const handleResize = () => {
       setWindowSize({
@@ -59,6 +61,8 @@ const CrackerPicked = ({ setStage, color }) => {
         height: window.innerHeight,
       });
     };
+
+    console.log(windowDifference);
 
     // Add event listener for window resize
     window.addEventListener("resize", handleResize);
@@ -80,15 +84,15 @@ const CrackerPicked = ({ setStage, color }) => {
       <Modal
         show={show}
         onHide={handleClose}
-        contentClassName="modal-height"
-        // dialogClassName="modal-width"
-        dialogClassName="my-modal"
+        size="lg"
+        aria-labelledby="example-modal-sizes-title-lg"
       >
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title
+            id="example-modal-sizes-title-lg"
             style={{
               color: "#B51F1C",
-              fontSize: windowDifference >= 250 ? "3rem" : "2.25rem",
+              fontSize: "2.25rem",
             }}
           >
             Share via a link!
@@ -111,28 +115,40 @@ const CrackerPicked = ({ setStage, color }) => {
             <EmailIcon />
           </EmailShareButton>
         </Modal.Body>
-        <Modal.Body>
+        <Modal.Header>
           <Modal.Title
+            id="example-modal-sizes-title-lg"
             style={{
               color: "#B51F1C",
-              fontSize: windowDifference >= 250 ? "3rem" : "2.25rem",
+              fontSize: "2.25rem",
             }}
           >
             Scan QR Code!
           </Modal.Title>
-        </Modal.Body>
+        </Modal.Header>
         <Modal.Footer>
           <div
             style={{
-              // maxWidth: 64,
               display: "block",
-              marginRight: "auto",
-              height: "100%",
+              margin: "auto",
+              width: "60%",
             }}
           >
             <QRCode
               size={256}
-              style={{ height: "80%", width: "100%" }}
+              style={{
+                height: "100%",
+                width:
+                  oreintation === "landscape-primary" &&
+                  windowDifference >= 250 &&
+                  windowDifference <= 400
+                    ? "65%"
+                    : oreintation === "portrait-primary" &&
+                      windowDifference >= 250 &&
+                      windowDifference <= 400
+                    ? "65%"
+                    : "85%",
+              }}
               value="https://www.gardensbythebay.com.sg/en.html"
               viewBox={`0 0 256 256`}
             />
@@ -179,6 +195,7 @@ const CrackerPicked = ({ setStage, color }) => {
             relativeY <= 94.8
           ) {
             handleShow();
+            setLgShow(true);
           }
         }}
         style={{
@@ -191,7 +208,6 @@ const CrackerPicked = ({ setStage, color }) => {
         }}
         src={`/rcJokesPng/joke_${jokesIdx}.png`}
       />
-
       <img
         src={
           pull === 5
